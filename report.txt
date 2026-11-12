@@ -1,0 +1,14 @@
+Student Identification
+Name:
+UCLA ID:
+
+Completion Status
+Completed and working:
+Incomplete or known issues (write "None" if applicable):
+
+Test Cases and Verification
+For each test, briefly describe the input, expected behavior, and observed result.
+Include tests of the three product types, keyword matching, and edge cases.
+You may describe tests in words; pseudocode and source code are not required.
+
+Optional Notes:
