@@ -7,7 +7,7 @@ using namespace std;
 // TODO: Implement constructor, destructor, getCategory, matchesKeyword, printInfo
 
 // Implement constructor
-Electronics::Electronics(const std::string& name, double price, int warrantyMonths)
+Electronics::Electronics(const string& name, double price, int warrantyMonths)
 	: Product(name, price), m_warrantyMonths(warrantyMonths) {
 }
 
@@ -15,12 +15,17 @@ Electronics::Electronics(const std::string& name, double price, int warrantyMont
 Electronics::~Electronics() {}
 
 // Implement getCategory()
-std::string Electronics::getCategory() const {
+string Electronics::getCategory() const {
 	return "Electronics";
 }
 
 // Implement matchesKeyword()
-bool Electronics::matchesKeyword(const std::string& keyword) const {}
+bool Electronics::matchesKeyword(const string& keyword) const {}
 
 // Implement printInfo()
-void Electronics::printInfo() const {}
+void Electronics::printInfo() const {
+	cout << "Category: " << getCategory() << " | "
+		 << "Name: " << getName() << " | "
+		 << "Price: " << fixed << setprecision(2) << getPrice()
+		 << "Warranty: " << m_warrantyMonths << " months" << endl;
+}

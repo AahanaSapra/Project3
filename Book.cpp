@@ -8,7 +8,7 @@ using namespace std;
 
 // Implement constructor
 // call base class constructor in initializer list
-Book::Book(const std::string& name, double price, const std::string& author) 
+Book::Book(const string& name, double price, const string& author) 
 	: Product(name, price), m_author(author) {}
 
 // Implement destructor
@@ -16,12 +16,17 @@ Book::Book(const std::string& name, double price, const std::string& author)
 Book::~Book() {}
 
 // Implement getCategory()
-std::string Book::getCategory() const {
+string Book::getCategory() const {
 	return "Book";
 }
 
 // Implement matchesKeyword()
-bool Book::matchesKeyword(const std::string& keyword) const {}
+bool Book::matchesKeyword(const string& keyword) const {}
 
 // Implement printInfo()
-void Book::printInfo() const {}
+void Book::printInfo() const {
+	cout << "Category: " << getCategory() << " | "
+		 << "Name: " << getName() << " | "
+		 << "Price: " << fixed << setprecision(2) << getPrice()
+		 << "Author: " << m_author << endl;
+}
