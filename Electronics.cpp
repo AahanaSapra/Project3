@@ -20,7 +20,25 @@ string Electronics::getCategory() const {
 }
 
 // Implement matchesKeyword()
-bool Electronics::matchesKeyword(const string& keyword) const {}
+bool Electronics::matchesKeyword(const string& keyword) const {
+	// Empty keyword or only whitespace -> return false
+	if (keyword.empty() || keyword.find_first_not_of(" \t\n\r\f\v") == string::npos) {
+		return false;
+	}
+
+	// Search name field
+	if (stringLower(getName()).find(stringLower(keyword)) != string::npos) {
+		return true;
+	}
+
+	// Search warranty field (number followed by " months" even if singular month)
+	string warrantyStr = to_string(m_warrantyMonths) + " months";
+	if (stringLower(warrantyStr).find(stringLower(keyword)) != string::npos) {
+		return true;
+	}
+
+	return false;
+}
 
 // Implement printInfo()
 void Electronics::printInfo() const {

@@ -17,5 +17,7 @@ public:
 protected:
     std::string m_name;
     double m_price;
+
+	std::string stringLower(const std::string& str) const;
 };
 #endif
