@@ -19,5 +19,7 @@ protected:
     double m_price;
 
 	std::string stringLower(const std::string& str) const;
+	bool checkEmptyOrWhitespace(const std::string& keyword) const;
+	bool checkName(const std::string& keyword) const;
 };
 #endif

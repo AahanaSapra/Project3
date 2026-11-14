@@ -23,18 +23,16 @@ string Book::getCategory() const {
 // Implement matchesKeyword()
 bool Book::matchesKeyword(const string& keyword) const {
 	// Empty keyword or only whitespace -> return false
-	if (keyword.empty() || keyword.find_first_not_of(" \t\n\r\f\v") == string::npos) {
-		return false;
-	}
+	if (!checkEmptyOrWhitespace(keyword)) {
+		// Search name field
+		if (checkName(keyword)) {
+			return true;
+		}
 
-	// Search name field
-	if (stringLower(getName()).find(stringLower(keyword)) != string::npos) {
-		return true;
-	}
-
-	// Search author field
-	if (stringLower(m_author).find(stringLower(keyword)) != string::npos) {
-		return true;
+		// Search author field
+		if (stringLower(m_author).find(stringLower(keyword)) != string::npos) {
+			return true;
+		}
 	}
 
 	return false;

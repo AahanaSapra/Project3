@@ -19,3 +19,13 @@ std::string Product::stringLower(const std::string& str) const {
 
     return res;
 }
+
+// Implement helper function to check if a keyword is empty or only whitespace
+bool Product::checkEmptyOrWhitespace(const std::string& keyword) const {
+	return (keyword.empty() || keyword.find_first_not_of(" \t\n\r\f\v") == std::string::npos);
+}
+
+// Implement helper function to check if the keyword is a substring of the product's name
+bool Product::checkName(const std::string& keyword) const {
+    return (stringLower(getName()).find(stringLower(keyword)) != std::string::npos);
+}
