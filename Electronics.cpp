@@ -19,7 +19,7 @@ string Electronics::getCategory() const {
 	return "Electronics";
 }
 
-// Implement matchesKeyword()
+// Implement matchesKeyword() to search for a keyword in the name or warranty fields
 bool Electronics::matchesKeyword(const string& keyword) const {
 	// Empty keyword or only whitespace -> return false
 	if (!checkEmptyOrWhitespace(keyword)) {

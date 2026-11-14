@@ -19,7 +19,7 @@ string Clothing::getCategory() const {
 	return "Clothing";
 }
 
-// Implement matchesKeyword()
+// Implement matchesKeyword() to search for a keyword in the name or size fields
 bool Clothing::matchesKeyword(const string& keyword) const {
 	// Empty keyword or only whitespace -> return false
 	if (!checkEmptyOrWhitespace(keyword)) {

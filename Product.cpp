@@ -1,5 +1,6 @@
 #include "Product.h"
 #include <iostream>
+#include <cctype>
 
 Product::Product(std::string name, double price)
     : m_name(name), m_price(price) {}
@@ -9,12 +10,12 @@ std::string Product::getName() const { return m_name; }
 double Product::getPrice() const { return m_price; }
 
 // Implement helper function to convert string to lowercase for case-insensitive comparisons
-// TODO:: static_cast<char> and/or static_cast<unsigned char>
+// passing signed char = undefined behavior if string contains non-ASCII char
 std::string Product::stringLower(const std::string& str) const {
     std::string res = str;
 
     for (char& c : res) {
-        c = std::tolower(c);
+        c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
     }
 
     return res;

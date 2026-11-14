@@ -20,7 +20,7 @@ string Book::getCategory() const {
 	return "Book";
 }
 
-// Implement matchesKeyword()
+// Implement matchesKeyword() to search for a keyword in the name or author fields
 bool Book::matchesKeyword(const string& keyword) const {
 	// Empty keyword or only whitespace -> return false
 	if (!checkEmptyOrWhitespace(keyword)) {

@@ -1,14 +1,140 @@
-Student Identification
-Name:
-UCLA ID:
+STUDENT IDENTIFICATION
+Name: Aahana Sapra
+UCLA ID: 906978343
+________________
 
-Completion Status
-Completed and working:
-Incomplete or known issues (write "None" if applicable):
 
-Test Cases and Verification
+COMPLETION STATUS
+Completed & Working:
+All constructors, destructors, and member variables implemented
+All test cases passed
+
+
+Incomplete or Known Issues (write "None" if applicable):
+None
+________________
+
+
+TEST CASES & VERIFICATION
 For each test, briefly describe the input, expected behavior, and observed result.
 Include tests of the three product types, keyword matching, and edge cases.
 You may describe tests in words; pseudocode and source code are not required.
 
-Optional Notes:
+
+OBJECTS
+* 1 (Clothing):
+   * Name: “Hoodie”
+   * Price: 29.99
+   * Size: “M”
+* 2 (Book):
+   * Name: “The AI Era”
+   * Price: 12.50
+   * Author: “J. Doe”
+* 3 (Electronics):
+   * Name: “Bluetooth Speaker”
+   * Price: 59.99
+   * Warranty: 24
+* 4 (Book):
+   * Name: “Harry Porter and the Cave of Death”
+   * Price: 21.99
+   * Author: “Jonathan”
+* 5 (Electronics):
+   * Name: “USB Cable”
+   * Price: 20.00
+   * Warranty: 1
+
+
+TEST CASE 1
+* Objects: 1, 2, 3
+* Expected Behavior: 
+   * Category: Clothing | Name: Hoodie | Price: 29.99 | Size: M
+   * Category: Book | Name: The AI Era | Price: 12.50 | Author: J. Doe
+   * Category: Electronics | Name: Bluetooth Speaker | Price: 59.99 | Warranty: 24 months
+* Observed Behavior:
+   * Category: Clothing | Name: Hoodie | Price: 29.99 | Size: M
+   * Category: Book | Name: The AI Era | Price: 12.50 | Author: J. Doe
+   * Category: Electronics | Name: Bluetooth Speaker | Price: 59.99 | Warranty: 24 months
+* Purpose: verify that the printInfo() output for each derived class matches the provided output in the assignment guidelines
+
+
+TEST CASE 2
+* Object: 2
+* Keyword: “ai”
+* Expected Behavior: true
+* Observed Behavior: true
+* Purpose: verify case insensitive keyword matching
+
+
+TEST CASE 3
+* Object: 3
+* Keyword: “Speaker” (no leading spaces) + “  Speaker” (two leading spaces)
+* Expected Behavior: true, false
+* Observed Behavior: true, false
+* Purpose: verify proper handling of extra spaces in keyword
+
+
+TEST CASE 4
+* Object: 4, 3
+* Keyword: “than”, “month”
+* Expected Behavior: true, true
+* Observed Behavior: true, true
+* Purpose: verify simplest case substring identification
+
+
+TEST CASE 5
+* Object: 3
+* Keyword: “4 month”
+* Expected Behavior: true
+* Observed Behavior: true
+* Purpose: verify that matchesKeyword() can identify substrings even with space separated characters
+
+
+TEST CASE 6
+* Object: 1
+* Keyword: “Hoodie M”
+* Expected Behavior: false
+* Observed Behavior: false
+* Purpose: verify proper handling of attempt to search multiple fields simultaneously
+
+
+TEST CASE 7
+* Object: 1
+* Keyword: “” (empty string), “   ” (three spaces)
+* Expected Behavior: false, false
+* Observed Behavior: false, false
+* Purpose: verify proper handling of empty keyword or only whitespace
+
+
+TEST CASE 8
+* Object: 5
+* Keyword: “1 months”, “1 month”
+* Expected Behavior:
+   * printInfo(): Category: Electronics | Name: USB Cable | Price: 20.00 | Warranty: 1 months
+   * matchesKeyword(): true, true
+* Observed Behavior:
+   * printInfo(): Category: Electronics | Name: USB Cable | Price: 20.00 | Warranty: 1 months
+   * matchesKeyword(): true, true
+* Purpose: verify singular warranty (1 month) still uses plural "months"
+
+
+TEST CASE 9
+* Object: 1
+* Keyword: “Hoodie  ” (two trailing spaces), “\t\n”
+* Expected Behavior: false, false
+* Observed Behavior: false, false
+* Purpose: verify proper trailing whitespace and other whitespace (tab/newline only) handling
+
+
+TEST CASE 10
+* Object: 1
+* Keyword: “m”, “XL”
+* Expected Behavior: true, false
+* Observed Behavior: true, false
+* Purpose: verify clothing size field matching (case insensitivity and multiple char str)
+
+
+TEST CASE 11
+* Object: 1, 2, 3, 5
+* Expected Behavior: “Clothing”, “Book”, “Electronics”, 20.00
+* Observed Behavior: “Clothing”, “Book”, “Electronics”, 20.00
+* Purpose: verify polymorphic behavior of getCategory() and getName()/getPrice() methods

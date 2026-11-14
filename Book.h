@@ -5,7 +5,7 @@
 class Book : public Product {
 public:
     Book(const std::string& name, double price, const std::string& author);
-    virtual ~Book(); // QUESTION: why not use override here instead of virtual
+    virtual ~Book();
 
     std::string getCategory() const override;
     bool matchesKeyword(const std::string& keyword) const override;
