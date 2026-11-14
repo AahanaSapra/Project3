@@ -41,6 +41,6 @@ bool Clothing::matchesKeyword(const string& keyword) const {
 void Clothing::printInfo() const {
 	cout << "Category: " << getCategory() << " | "
 		 << "Name: " << getName() << " | "
-		 << "Price: " << fixed << setprecision(2) << getPrice()
+		 << "Price: " << fixed << setprecision(2) << getPrice() << " | "
 		 << "Size: " << m_size << endl;
 }

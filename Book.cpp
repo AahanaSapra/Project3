@@ -42,6 +42,6 @@ bool Book::matchesKeyword(const string& keyword) const {
 void Book::printInfo() const {
 	cout << "Category: " << getCategory() << " | "
 		 << "Name: " << getName() << " | "
-		 << "Price: " << fixed << setprecision(2) << getPrice()
+		 << "Price: " << fixed << setprecision(2) << getPrice() << " | "
 		 << "Author: " << m_author << endl;
 }
